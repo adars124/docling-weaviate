@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from utils.connection import create_weaviate_client
 from utils.embeddings import get_embeddings
-from constants import COLLECTION_NAME
+from constants import COLLECTION_NAME, CHAT_MODEL
 
 load_dotenv()
 
@@ -71,8 +71,9 @@ def get_chat_response(messages, context: str) -> str:
     messages_with_context = [{"role": "system", "content": system_prompt}, *messages]
 
     # Create the streaming response
+    # TODO: Replace this with a local model (e.g. Mistral 7B)
     stream = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=CHAT_MODEL,
         messages=messages_with_context,
         temperature=0.7,
         stream=True,

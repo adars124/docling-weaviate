@@ -10,6 +10,7 @@ load_dotenv()
 client = OpenAI()
 
 
+# TODO: Replace this with a local embedding model
 def get_embeddings(text: str) -> Optional[list[float]]:
     """Get embeddings for a text using OpenAI's embedding API."""
     try:

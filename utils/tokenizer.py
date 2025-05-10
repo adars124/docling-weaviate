@@ -4,6 +4,7 @@ from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from constants import MAX_TOKENS
 
 
+# TODO: Need to use a different tokenizer for the local model
 class OpenAITokenizerWrapper(PreTrainedTokenizerBase):
     """Minimal wrapper for OpenAI tokenizer."""
 
